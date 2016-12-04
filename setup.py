@@ -1,6 +1,7 @@
 import os
 import sys
 from distutils.core import setup
+from glob import glob
 
 
 class NodeModulesMissing(Exception):
@@ -22,6 +23,7 @@ if not os.path.exists('node_modules'):
 
 setup_args = dict(
     name                 = 'jupyterhub_labextension',
+    scripts              = glob(os.path.join('cli_scripts', '*')),
     version              = '0.1.0',
     packages             = ['jupyterhub_labextension'],
     author               = 'Project Jupyter',
