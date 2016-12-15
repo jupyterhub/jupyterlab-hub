@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "jupyterhub_labextension",
+  "version": "0.1.0",
+  "description": "Integrate JupyterHub with JupyterLab",
+  "author": "Project Jupyter",
+  "main": "lib/plugin.js",
+  "keywords": [
+    "jupyter",
+    "jupyterlab"
+  ],
+  "scripts": {
+    "build:src": "tsc --project src && node scripts/copyfiles.js",
+    "build:extension": "node scripts/build_extension.js",
+    "build": "npm run build:src && npm run build:extension",
+    "clean": "rimraf lib && rimraf jupyterhub_labextension/static",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "jupyterlab": "^0.11.2",
+    "url-join": "^1.1.0"
+  },
+  "devDependencies": {
+    "fs-extra": "^0.30.0",
+    "rimraf": "^2.5.4",
+    "@jupyterlab/extension-builder": "^0.10.0",
+    "typescript": "^2.0.3"
+  }
+}
