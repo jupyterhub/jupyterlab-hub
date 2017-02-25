@@ -5,7 +5,7 @@ Integrate JupyterHub with JupyterLab
 
 ## Prerequisites
 
-* JupyterLab 0.11.2 or later
+* JupyterLab 0.16.2 or later
 * JupyterHub 0.7.0 or later
 
 ## Installation
