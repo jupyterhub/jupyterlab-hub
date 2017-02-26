@@ -8,8 +8,8 @@ class SingleUserLabApp(SingleUserNotebookApp, LabApp):
         settings = self.web_app.settings
         if 'page_config_data' not in settings:
             settings['page_config_data'] = {}
-        settings['page_config_data']['hubPrefix'] = self.hub_prefix
-        settings['page_config_data']['hubHost'] = self.hub_host
+        settings['page_config_data']['hub_prefix'] = self.hub_prefix
+        settings['page_config_data']['hub_host'] = self.hub_host
 
 
 def main(argv=None):

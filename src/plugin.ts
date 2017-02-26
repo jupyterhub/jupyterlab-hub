@@ -35,13 +35,10 @@ import * as urljoin
  */
 function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMenu: IMainMenu): void {
 
-  const category = 'Hub';
-  let { commands } = app;
-
-  // This config is provided by JupyterHub to the single-user server app.
-  // The app passes in jinja template variables which populate lab.html.
-  let hubHost = utils.getConfigOption('hubHost');
-  let hubPrefix = utils.getConfigOption('hubPrefix');
+  // This config is provided by JupyterHub by the single-user server app
+  // via in dictionary app.web_app.settings['page_config_data'].
+  let hubHost = utils.getConfigOption('hub_host');
+  let hubPrefix = utils.getConfigOption('hub_prefix');
 
   if (!hubPrefix) {
     console.log('jupyterhub-labextension: No configuration found.');
@@ -50,6 +47,9 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
 
   console.log('jupyterhub-labextension: Found configuration ',
               {hubHost: hubHost, hubPrefix: hubPrefix});
+
+  const category = 'Hub';
+  const { commands } = app;
 
   commands.addCommand(CommandIDs.controlPanel, {
     label: 'Control Panel',
