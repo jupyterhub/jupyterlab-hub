@@ -18,6 +18,13 @@ jupyter labextension install --py --sys-prefix jupyterhub_labextension
 jupyter labextension enable --py --sys-prefix jupyterhub_labextension
 ```
 
+Edit the JupyterHub configuration file (typically ``jupyterhub_config.py``) with
+the line:
+
+```python
+c.Spawner.cmd = ['jupyterhub-singlelabuser']
+```
+
 ## Development
 
 For a development install (requires npm version 4 or later), do the following in the repository directory:
