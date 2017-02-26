@@ -36,11 +36,12 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
   let hubPrefix = utils.getConfigOption('hubPrefix');
 
   if (!hubPrefix) {
-    console.log('No JupyterHub configuration found.');
+    console.log('jupyterhub-labextension: No configuration found.');
     return
   }
 
-  console.log('JupyterHub configuration found: ' + hubHost + hubPrefix);
+  console.log('jupyterhub-labextension: Found configuration ',
+              {hubHost: hubHost, hubPrefix: hubPrefix});
 
   let { commands, keymap } = app;
   let category = 'Hub';
