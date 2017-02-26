@@ -18,13 +18,13 @@
   },
   "dependencies": {
     "@phosphor/widgets": "^0.1.4",
-    "jupyterlab": "^0.16.2",
+    "jupyterlab": "0.17.0",
     "url-join": "^1.1.0"
   },
   "devDependencies": {
+    "@jupyterlab/extension-builder": "^0.11.0",
     "fs-extra": "^0.30.0",
     "rimraf": "^2.5.4",
-    "@jupyterlab/extension-builder": "^0.11.0",
-    "typescript": "^2.0.3"
+    "typescript": "^2.1.6"
   }
 }
