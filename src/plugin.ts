@@ -21,6 +21,11 @@ import {
   JupyterLab, JupyterLabPlugin
 } from 'jupyterlab/lib/application';
 
+import {
+  CommandIDs
+} from './';
+
+
 import * as urljoin
   from 'url-join';
 
@@ -44,34 +49,34 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
               {hubHost: hubHost, hubPrefix: hubPrefix});
 
   let { commands, keymap } = app;
-  let category = 'Hub';
+  const category = 'Hub';
 
   let menu = new Menu({ commands, keymap });
-  menu.title.label = 'Hub';
-
-  let command: string;
+  menu.title.label = category;
 
   // Add commands and menu itmes for each link.
-  command = 'hub:control-panel';
-  commands.addCommand(command, {
+  commands.addCommand(CommandIDs.controlPanel, {
     label: 'Control Panel',
+	caption: 'Open a the Hub control panel a new browser tab.',
     execute: () => {
       window.open(hubHost + urljoin(hubPrefix, 'home'), '_blank');
     }
   });
-  palette.addItem({command: command, category: "Hub"});
-  menu.addItem({ command });
 
-  command = 'hub:logout';
-  commands.addCommand(command, {
+  commands.addCommand(CommandIDs.logout, {
     label: 'Logout',
+	caption: 'Log out of the Hub.',
     execute: () => {
       window.open(hubHost + urljoin(hubPrefix, 'logout'), '_blank');
     }
   });
-  palette.addItem({command: command, category: "Hub"});
-  menu.addItem({ command });
-
+  [
+    CommandIDs.controlPanel,
+    CommandIDs.logout,
+  ].forEach(command => {
+    palette.addItem({ command, category });
+    menu.addItem({ command });
+  });
   mainMenu.addMenu(menu, {rank: 100});
 }
 
@@ -80,12 +85,12 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
  * Initialization data for the jupyterlab_hub extension.
  */
 const hubExtension: JupyterLabPlugin<void> = {
+  activate: activateHubExtension,
   id: 'jupyter.extensions.jupyterhub-labextension',
   requires: [
     ICommandPalette,
     IMainMenu,
   ],
-  activate: activateHubExtension,
   autoStart: true,
 }
 
