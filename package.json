@@ -17,6 +17,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
+    "@phosphor/widgets": "^0.1.4",
     "jupyterlab": "^0.16.2",
     "url-join": "^1.1.0"
   },

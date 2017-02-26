@@ -3,7 +3,7 @@
 
 import {
   Menu
-} from 'phosphor/lib/ui/menu';
+} from '@phosphor/widgets';
 
 import {
   utils
@@ -35,6 +35,9 @@ import * as urljoin
  */
 function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMenu: IMainMenu): void {
 
+  const category = 'Hub';
+  let { commands } = app;
+
   // This config is provided by JupyterHub to the single-user server app.
   // The app passes in jinja template variables which populate lab.html.
   let hubHost = utils.getConfigOption('hubHost');
@@ -48,13 +51,6 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
   console.log('jupyterhub-labextension: Found configuration ',
               {hubHost: hubHost, hubPrefix: hubPrefix});
 
-  let { commands, keymap } = app;
-  const category = 'Hub';
-
-  let menu = new Menu({ commands, keymap });
-  menu.title.label = category;
-
-  // Add commands and menu itmes for each link.
   commands.addCommand(CommandIDs.controlPanel, {
     label: 'Control Panel',
 	caption: 'Open a the Hub control panel a new browser tab.',
@@ -70,6 +66,10 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
       window.open(hubHost + urljoin(hubPrefix, 'logout'), '_blank');
     }
   });
+
+  // Add commands and menu itmes.
+  let menu = new Menu({ commands });
+  menu.title.label = category;
   [
     CommandIDs.controlPanel,
     CommandIDs.logout,
