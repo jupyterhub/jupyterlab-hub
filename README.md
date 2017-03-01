@@ -5,7 +5,7 @@ Integrate JupyterHub with JupyterLab
 
 ## Prerequisites
 
-* JupyterLab 0.11.2 or later
+* JupyterLab 0.17.0 or later
 * JupyterHub 0.7.0 or later
 
 ## Installation
@@ -16,6 +16,14 @@ To install using pip:
 pip install jupyterhub_labextension
 jupyter labextension install --py --sys-prefix jupyterhub_labextension
 jupyter labextension enable --py --sys-prefix jupyterhub_labextension
+```
+
+Edit the JupyterHub configuration file (typically ``jupyterhub_config.py``) to
+use the extension's custom spawner command. This is necessary to pass
+configuration from JupyterHub into JupyterLab.
+
+```python
+c.Spawner.cmd = ['jupyterhub-singlelabuser']
 ```
 
 ## Development

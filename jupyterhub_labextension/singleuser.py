@@ -2,8 +2,14 @@ from jupyterhub.singleuser import SingleUserNotebookApp
 from jupyterlab.labapp import LabApp
 
 
-class SingleUserLabApp(LabApp, SingleUserNotebookApp):
-    pass
+class SingleUserLabApp(SingleUserNotebookApp, LabApp):
+    def init_webapp(self, *args, **kwargs):
+        super().init_webapp(*args, **kwargs)
+        settings = self.web_app.settings
+        if 'page_config_data' not in settings:
+            settings['page_config_data'] = {}
+        settings['page_config_data']['hub_prefix'] = self.hub_prefix
+        settings['page_config_data']['hub_host'] = self.hub_host
 
 
 def main(argv=None):

@@ -3,7 +3,7 @@
 
 import {
   Menu
-} from 'phosphor/lib/ui/menu';
+} from '@phosphor/widgets';
 
 import {
   utils
@@ -21,6 +21,11 @@ import {
   JupyterLab, JupyterLabPlugin
 } from 'jupyterlab/lib/application';
 
+import {
+  CommandIDs
+} from './';
+
+
 import * as urljoin
   from 'url-join';
 
@@ -30,47 +35,48 @@ import * as urljoin
  */
 function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMenu: IMainMenu): void {
 
-  // This config is provided by JupyterHub to the single-user server app.
-  // The app passes in jinja template variables which populate lab.html.
-  let hubHost = utils.getConfigOption('hubHost');
-  let hubPrefix = utils.getConfigOption('hubPrefix');
+  // This config is provided by JupyterHub by the single-user server app
+  // via in dictionary app.web_app.settings['page_config_data'].
+  let hubHost = utils.getConfigOption('hub_host');
+  let hubPrefix = utils.getConfigOption('hub_prefix');
 
   if (!hubPrefix) {
-    console.log('No JupyterHub configuration found.');
+    console.log('jupyterhub-labextension: No configuration found.');
     return
   }
 
-  console.log('JupyterHub configuration found: ' + hubHost + hubPrefix);
+  console.log('jupyterhub-labextension: Found configuration ',
+              {hubHost: hubHost, hubPrefix: hubPrefix});
 
-  let { commands, keymap } = app;
-  let category = 'Hub';
+  const category = 'Hub';
+  const { commands } = app;
 
-  let menu = new Menu({ commands, keymap });
-  menu.title.label = 'Hub';
-
-  let command: string;
-
-  // Add commands and menu itmes for each link.
-  command = 'hub:control-panel';
-  commands.addCommand(command, {
+  commands.addCommand(CommandIDs.controlPanel, {
     label: 'Control Panel',
+	caption: 'Open a the Hub control panel a new browser tab.',
     execute: () => {
       window.open(hubHost + urljoin(hubPrefix, 'home'), '_blank');
     }
   });
-  palette.addItem({command: command, category: "Hub"});
-  menu.addItem({ command });
 
-  command = 'hub:logout';
-  commands.addCommand(command, {
+  commands.addCommand(CommandIDs.logout, {
     label: 'Logout',
+	caption: 'Log out of the Hub.',
     execute: () => {
       window.open(hubHost + urljoin(hubPrefix, 'logout'), '_blank');
     }
   });
-  palette.addItem({command: command, category: "Hub"});
-  menu.addItem({ command });
 
+  // Add commands and menu itmes.
+  let menu = new Menu({ commands });
+  menu.title.label = category;
+  [
+    CommandIDs.controlPanel,
+    CommandIDs.logout,
+  ].forEach(command => {
+    palette.addItem({ command, category });
+    menu.addItem({ command });
+  });
   mainMenu.addMenu(menu, {rank: 100});
 }
 
@@ -79,12 +85,12 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
  * Initialization data for the jupyterlab_hub extension.
  */
 const hubExtension: JupyterLabPlugin<void> = {
+  activate: activateHubExtension,
   id: 'jupyter.extensions.jupyterhub-labextension',
   requires: [
     ICommandPalette,
     IMainMenu,
   ],
-  activate: activateHubExtension,
   autoStart: true,
 }
 

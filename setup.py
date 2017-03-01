@@ -31,7 +31,7 @@ setup_args = dict(
     keywords             = ['jupyterlab', 'jupyterlab extension'],
     include_package_data = True,
     install_requires = [
-        'jupyterlab>=0.7.0',
+        'jupyterlab>=0.17.0',
         'jupyterhub>=0.7.0',
     ]
 )
