@@ -23,7 +23,7 @@ use the extension's custom spawner command. This is necessary to pass
 configuration from JupyterHub into JupyterLab.
 
 ```python
-c.Spawner.cmd = ['jupyterhub-singlelabuser']
+c.Spawner.cmd = ['jupyter-singlelabuser']
 ```
 
 ## Development
