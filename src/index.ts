@@ -45,11 +45,11 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
   let hubPrefix = utils.getConfigOption('hub_prefix');
 
   if (!hubPrefix) {
-    console.log('jupyterhub-labextension: No configuration found.');
+    console.log('jupyterlab-hub: No configuration found.');
     return
   }
 
-  console.log('jupyterhub-labextension: Found configuration ',
+  console.log('jupyterlab-hub: Found configuration ',
               {hubHost: hubHost, hubPrefix: hubPrefix});
 
   const category = 'Hub';
@@ -90,7 +90,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
  */
 const hubExtension: JupyterLabPlugin<void> = {
   activate: activateHubExtension,
-  id: 'jupyter.extensions.jupyterhub-labextension',
+  id: 'jupyter.extensions.jupyterlab-hub',
   requires: [
     ICommandPalette,
     IMainMenu,
