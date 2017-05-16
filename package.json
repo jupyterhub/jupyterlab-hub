@@ -1,30 +1,40 @@
 {
-  "private": true,
-  "name": "jupyterhub_labextension",
-  "version": "0.1.0",
-  "description": "Integrate JupyterHub with JupyterLab",
+  "name": "jupyterlab-hub",
+  "version": "0.2.0",
+  "description": "JupyterLab integration for JupyterHub.",
   "author": "Project Jupyter",
-  "main": "lib/plugin.js",
+  "main": "lib/index.js",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jupyterhub/jupyterlab-hub.git"
+  },
   "keywords": [
     "jupyter",
     "jupyterlab"
   ],
   "scripts": {
-    "build:src": "tsc --project src && node scripts/copyfiles.js",
-    "build:extension": "node scripts/build_extension.js",
-    "build": "npm run build:src && npm run build:extension",
-    "clean": "rimraf lib && rimraf jupyterhub_labextension/static",
+    "build": "tsc",
+    "clean": "rimraf lib",
     "prepublish": "npm run build"
   },
+  "files": [
+    "lib/*.d.ts",
+    "lib/*.js"
+  ],
+  "jupyterlab": {
+    "extension": true
+  },
   "dependencies": {
-    "@phosphor/widgets": "^0.1.4",
-    "jupyterlab": "0.17.0",
+    "@jupyterlab/application": "^0.4.0",
+    "@jupyterlab/apputils": "^0.4.0",
+    "@jupyterlab/coreutils": "^0.4.0",
+    "@phosphor/widgets": "^1.0.0",
     "url-join": "^1.1.0"
   },
   "devDependencies": {
-    "@jupyterlab/extension-builder": "^0.11.0",
-    "fs-extra": "^0.30.0",
-    "rimraf": "^2.5.4",
-    "typescript": "^2.1.6"
+    "@types/url-join": "^0.8.2",
+    "rimraf": "^2.6.1",
+    "typescript": "~2.2.0"
   }
 }
