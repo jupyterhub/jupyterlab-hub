@@ -6,16 +6,16 @@ import {
 } from '@phosphor/widgets';
 
 import {
-  PageConfig
-} from '@jupyterlab/coreutils';
-
-import {
   ICommandPalette, IMainMenu
 } from '@jupyterlab/apputils';
 
 import {
   JupyterLab, JupyterLabPlugin
 } from '@jupyterlab/application';
+
+import {
+  utils
+} from '@jupyterlab/services';
 
 import * as urljoin
   from 'url-join';
@@ -41,8 +41,8 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
 
   // This config is provided by JupyterHub by the single-user server app
   // via in dictionary app.web_app.settings['page_config_data'].
-  let hubHost = PageConfig.getOption('hub_host');
-  let hubPrefix = PageConfig.getOption('hub_prefix');
+  let hubHost = utils.getConfigOption('hub_host');
+  let hubPrefix = utils.getConfigOption('hub_prefix');
 
   if (!hubPrefix) {
     console.log('jupyterhub-labextension: No configuration found.');
