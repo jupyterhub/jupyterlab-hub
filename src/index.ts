@@ -57,7 +57,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
 
   commands.addCommand(CommandIDs.controlPanel, {
     label: 'Control Panel',
-    caption: 'Open a the Hub control panel in a new browser tab',
+    caption: 'Open the Hub control panel in a new browser tab',
     execute: () => {
       window.open(hubHost + urljoin(hubPrefix, 'home'), '_blank');
     }
