@@ -14,8 +14,8 @@ import {
 } from '@jupyterlab/application';
 
 import {
-  utils
-} from '@jupyterlab/services';
+  PageConfig
+} from '@jupyterlab/coreutils';
 
 import * as urljoin
   from 'url-join';
@@ -41,12 +41,12 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
 
   // This config is provided by JupyterHub by the single-user server app
   // via in dictionary app.web_app.settings['page_config_data'].
-  let hubHost = utils.getConfigOption('hub_host');
-  let hubPrefix = utils.getConfigOption('hub_prefix');
+  let hubHost = PageConfig.getOption('hub_host');
+  let hubPrefix = PageConfig.getOption('hub_prefix');
 
   if (!hubPrefix) {
     console.log('jupyterlab-hub: No configuration found.');
-    return
+    return;
   }
 
   console.log('jupyterlab-hub: Found configuration ',
@@ -57,7 +57,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
 
   commands.addCommand(CommandIDs.controlPanel, {
     label: 'Control Panel',
-	caption: 'Open a the Hub control panel a new browser tab.',
+    caption: 'Open the Hub control panel in a new browser tab',
     execute: () => {
       window.open(hubHost + urljoin(hubPrefix, 'home'), '_blank');
     }
@@ -65,7 +65,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
 
   commands.addCommand(CommandIDs.logout, {
     label: 'Logout',
-	caption: 'Log out of the Hub.',
+    caption: 'Log out of the Hub',
     execute: () => {
       window.open(hubHost + urljoin(hubPrefix, 'logout'), '_blank');
     }
@@ -96,7 +96,7 @@ const hubExtension: JupyterLabPlugin<void> = {
     IMainMenu,
   ],
   autoStart: true,
-}
+};
 
 export default hubExtension;
 
