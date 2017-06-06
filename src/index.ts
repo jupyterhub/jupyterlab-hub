@@ -14,11 +14,8 @@ import {
 } from '@jupyterlab/application';
 
 import {
-  PageConfig
+  PageConfig, URLExt
 } from '@jupyterlab/coreutils';
-
-import * as urljoin
-  from 'url-join';
 
 
 /**
@@ -59,7 +56,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
     label: 'Control Panel',
     caption: 'Open the Hub control panel in a new browser tab',
     execute: () => {
-      window.open(hubHost + urljoin(hubPrefix, 'home'), '_blank');
+      window.open(hubHost + URLExt.join(hubPrefix, 'home'), '_blank');
     }
   });
 
@@ -67,7 +64,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
     label: 'Logout',
     caption: 'Log out of the Hub',
     execute: () => {
-      window.open(hubHost + urljoin(hubPrefix, 'logout'), '_blank');
+      window.open(hubHost + URLExt.join(hubPrefix, 'logout'), '_blank');
     }
   });
 
