@@ -26,13 +26,12 @@
     "extension": true
   },
   "dependencies": {
-    "@jupyterlab/application": "^0.6.0",
-    "@jupyterlab/apputils": "^0.6.0",
-    "@jupyterlab/coreutils": "^0.6.0",
-    "@phosphor/widgets": "^1.0.0"
+    "@jupyterlab/application": "^0.7.0",
+    "@jupyterlab/apputils": "^0.7.0",
+    "@jupyterlab/coreutils": "^0.7.0",
+    "@phosphor/widgets": "^1.3.0"
   },
   "devDependencies": {
-    "@types/url-join": "^0.8.2",
     "rimraf": "^2.6.1",
     "typescript": "~2.2.0"
   }
