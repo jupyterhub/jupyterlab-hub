@@ -1,6 +1,6 @@
 {
   "name": "jupyterlab-hub",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "JupyterLab integration for JupyterHub.",
   "author": "Project Jupyter",
   "main": "lib/index.js",
