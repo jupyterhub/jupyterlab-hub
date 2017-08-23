@@ -4,8 +4,7 @@
 [JupyterHub](https://github.com/jupyterhub/jupyterhub).
 
 This adds a "Hub" menu to JupyterLab that allows a user to log out of JupyterHub
-or access their JupyterHub control panel. This follows the JupyterLab 0.20 and
-greater extension system where an extension is just an npm package, not wrapped
+or access their JupyterHub control panel. This follows the JupyterLab extension system where an extension is just an npm package, not wrapped
 in a Python package.
 
 ## Prerequisites
