@@ -10,7 +10,7 @@ in a Python package.
 
 ## Prerequisites
 
-* JupyterLab 0.22.0 or later.
+* JupyterLab.
 * A properly configured JupyterHub.
 
 ## Installation
@@ -18,10 +18,10 @@ in a Python package.
 To install this extension into JupyterLab, do the following:
 
 ```bash
-jupyter labextension install jupyterlab-hub
+jupyter labextension install @jupyterlab/hub-extension
 ```
 
-You will also need to start the single user servers in JupyterHub using the following command (that ships with JupyterLab 0.22 and greater):
+You will also need to start the single user servers in JupyterHub using the following command (that ships with JupyterLab):
 
 ```bash
 jupyter labhub
