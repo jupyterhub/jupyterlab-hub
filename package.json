@@ -1,5 +1,5 @@
 {
-  "name": "jupyterlab-hub",
+  "name": "@jupyterlab/hub-extension",
   "version": "0.4.0",
   "description": "JupyterLab integration for JupyterHub.",
   "author": "Project Jupyter",
