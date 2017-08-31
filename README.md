@@ -20,6 +20,12 @@ To install this extension into JupyterLab, do the following:
 jupyter labextension install @jupyterlab/hub-extension
 ```
 
+In `jupyterhub_config.py` configure the Spawner to tell the single-user notebook servers to default to Jupyter-Lab:
+
+```
+c.Spawner.default_url = '/lab'
+```
+
 You will also need to start the single user servers in JupyterHub using the following command (that ships with JupyterLab):
 
 ```bash
