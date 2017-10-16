@@ -1,6 +1,6 @@
 {
   "name": "@jupyterlab/hub-extension",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "JupyterLab integration for JupyterHub.",
   "author": "Project Jupyter",
   "main": "lib/index.js",
@@ -26,9 +26,9 @@
     "extension": true
   },
   "dependencies": {
-    "@jupyterlab/application": "^0.10.0",
-    "@jupyterlab/apputils": "^0.10.0",
-    "@jupyterlab/coreutils": "^0.10.0",
+    "@jupyterlab/application": "^0.11.1",
+    "@jupyterlab/apputils": "^0.11.1",
+    "@jupyterlab/coreutils": "^0.11.1",
     "@phosphor/widgets": "^1.3.0"
   },
   "devDependencies": {
