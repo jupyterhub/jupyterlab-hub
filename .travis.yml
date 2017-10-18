@@ -1,3 +1,5 @@
+# based on recipe in 
+# https://github.com/jupyterlab/extension-cookiecutter-ts/blob/master/.travis.yml
 language: python
 sudo: false
 dist: trusty
