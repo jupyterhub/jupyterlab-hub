@@ -6,7 +6,7 @@ import {
 } from '@phosphor/widgets';
 
 import {
-  ICommandPalette, IMainMenu
+  ICommandPalette
 } from '@jupyterlab/apputils';
 
 import {
@@ -17,6 +17,9 @@ import {
   PageConfig, URLExt
 } from '@jupyterlab/coreutils';
 
+import {
+  IMainMenu
+} from '@jupyterlab/mainmenu';
 
 /**
  * The command IDs used by the plugin.
