@@ -32,6 +32,13 @@ You will also need to start the single user servers in JupyterHub using the foll
 jupyter labhub
 ```
 
+Alternatively, you can add the following to `jupyterhub_config.py`:
+
+```
+c.Spawner.cmd = ['jupyter-labhub']
+```
+
+
 ## Development
 
 For a development install (requires npm version 4 or later), do the following in the repository directory:
