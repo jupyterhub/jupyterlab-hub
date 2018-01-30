@@ -27,8 +27,7 @@ jupyter labextension install @jupyterlab/hub-extension
 In `jupyterhub_config.py` configure the Spawner to tell the single-user notebook servers to default to Jupyter-Lab:
 
 ```
-c.Spawner.default_url = '/lab'
-c.Spawner.environment = { 'JUPYTERHUB_ENABLE_LAB': 'yes' }
+c.Spawner.environment = { 'JUPYTER_ENABLE_LAB': 'yes' }
 ```
 
 Note that if your notebook is not based off `jupyter/base-notebook`, you will need to configure the command manually:
