@@ -14,30 +14,34 @@ in a Python package.
 
 ## Installation
 
+### Notebook
+
 To install this extension into JupyterLab, do the following:
 
 ```bash
 jupyter labextension install @jupyterlab/hub-extension
 ```
 
+### JupyterHub
+
 In `jupyterhub_config.py` configure the Spawner to tell the single-user notebook servers to default to Jupyter-Lab:
 
 ```
 c.Spawner.default_url = '/lab'
+c.Spawner.environment = { 'JUPYTERHUB_ENABLE_LAB': 'yes' }
 ```
 
-You will also need to start the single user servers in JupyterHub using the following command (that ships with JupyterLab):
-
-```bash
-jupyter labhub
-```
-
-Alternatively, you can add the following to `jupyterhub_config.py`:
+Note that if your notebook is not based off `jupyter/base-notebook`, you will need to configure the command manually:
 
 ```
 c.Spawner.cmd = ['jupyter-labhub']
 ```
 
+or have you single user servers using the following entry command:
+
+```bash
+jupyter labhub
+```
 
 ## Development
 
