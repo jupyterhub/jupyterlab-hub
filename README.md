@@ -24,22 +24,23 @@ jupyter labextension install @jupyterlab/hub-extension
 
 ### JupyterHub
 
-In `jupyterhub_config.py` configure the Spawner to tell the single-user notebook servers to default to Jupyter-Lab:
+For single-user images based off `jupyter/base-notebook`, you may enable Jupyter-Lab with
+[JUPYTER_ENABLE_LAB](https://github.com/jupyter/docker-stacks/tree/master/base-notebook#notebook-options) in `jupyterhub_config.py`:
 
 ```
 c.Spawner.environment = { 'JUPYTER_ENABLE_LAB': 'yes' }
 ```
 
-Note that if your notebook is not based off `jupyter/base-notebook`, you will need to configure the command manually:
-
-```
-c.Spawner.cmd = ['jupyter-labhub']
-```
-
-or have you single user servers using the following entry command:
+For other images, have your single-user servers using the following entry command:
 
 ```bash
 jupyter labhub
+```
+
+This can be achieved by the Spawner configuration:
+
+```
+c.Spawner.cmd = ['jupyter-labhub']
 ```
 
 ## Development
