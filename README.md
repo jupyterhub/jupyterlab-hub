@@ -38,6 +38,7 @@ Alternatively, you can add the following to `jupyterhub_config.py`:
 c.Spawner.cmd = ['jupyter-labhub']
 ```
 
+Note: Additional information may be found in the [Zero to JupyterHub Guide for Kubernetes](https://zero-to-jupyterhub.readthedocs.io/en/latest/user-environment.html#use-jupyterlab-by-default)
 
 ## Development
 
