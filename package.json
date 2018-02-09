@@ -11,7 +11,8 @@
   },
   "keywords": [
     "jupyter",
-    "jupyterlab"
+    "jupyterlab",
+    "jupyterlab-extension"
   ],
   "scripts": {
     "build": "tsc",
