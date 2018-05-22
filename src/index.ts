@@ -39,8 +39,8 @@ namespace CommandIDs {
  */
 function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMenu: IMainMenu): void {
 
-  // This config is provided by JupyterHub by the single-user server app
-  // via in dictionary app.web_app.settings['page_config_data'].
+  // This config is provided by JupyterHub to the single-user server app
+  // in a dictionary: app.web_app.settings['page_config_data'].
   let hubHost = PageConfig.getOption('hub_host');
   let hubPrefix = PageConfig.getOption('hub_prefix');
 
@@ -67,7 +67,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
     label: 'Logout',
     caption: 'Log out of the Hub',
     execute: () => {
-      window.open(hubHost + URLExt.join(hubPrefix, 'logout'), '_blank');
+      window.location.href = hubHost + URLExt.join(hubPrefix, 'logout');
     }
   });
 
@@ -99,4 +99,3 @@ const hubExtension: JupyterLabPlugin<void> = {
 };
 
 export default hubExtension;
-
