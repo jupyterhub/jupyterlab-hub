@@ -1,6 +1,6 @@
 {
   "name": "@jupyterlab/hub-extension",
-  "version": "0.8.0",
+  "version": "0.8.2",
   "description": "JupyterLab integration for JupyterHub.",
   "author": "Project Jupyter",
   "main": "lib/index.js",
@@ -11,7 +11,8 @@
   },
   "keywords": [
     "jupyter",
-    "jupyterlab"
+    "jupyterlab",
+    "jupyterlab-extension"
   ],
   "scripts": {
     "build": "tsc",
@@ -27,11 +28,11 @@
     "extension": true
   },
   "dependencies": {
-    "@jupyterlab/application": "^0.15.0",
-    "@jupyterlab/apputils": "^0.15.0",
-    "@jupyterlab/coreutils": "^1.0.0",
-    "@jupyterlab/mainmenu": "^0.4.0",
-    "@phosphor/widgets": "^1.3.0"
+    "@jupyterlab/application": "^0.16.0",
+    "@jupyterlab/apputils": "^0.16.0",
+    "@jupyterlab/coreutils": "^1.1.0",
+    "@jupyterlab/mainmenu": "^0.5.0",
+    "@phosphor/widgets": "^1.5.0"
   },
   "devDependencies": {
     "rimraf": "^2.6.1",

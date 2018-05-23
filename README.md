@@ -43,6 +43,15 @@ This can be achieved by the Spawner configuration:
 c.Spawner.cmd = ['jupyter-labhub']
 ```
 
+Note: Additional information may be found in the [Zero to JupyterHub Guide for Kubernetes](https://zero-to-jupyterhub.readthedocs.io/en/latest/user-environment.html#use-jupyterlab-by-default)
+
+If Jupyterhub is served under a subdirectory (for instance `/jupyter`), you will need to pass this information to JupyterLab via `page_config.json`. In an Anaconda installation, this file should be created at `/path/to/anaconda/share/jupyter/lab/settings/page_config.json`. Example contents:
+```
+{
+    "hub_prefix": "/jupyter"
+}
+```
+
 ## Development
 
 For a development install (requires npm version 4 or later), do the following in the repository directory:
