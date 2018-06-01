@@ -66,7 +66,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
 
   commands.addCommand(CommandIDs.logout, {
     label: 'Logout',
-    caption: 'Shut down this server and log out of the Hub',
+    caption: 'Log out of the Hub',
     execute: () => {
       window.location.href = hubHost + URLExt.join(baseUrl, 'logout');
     }
