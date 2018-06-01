@@ -43,6 +43,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
   // in a dictionary: app.web_app.settings['page_config_data'].
   let hubHost = PageConfig.getOption('hub_host');
   let hubPrefix = PageConfig.getOption('hub_prefix');
+  let baseUrl = PageConfig.getOption('baseUrl');
 
   if (!hubPrefix) {
     console.log('jupyterlab-hub: No configuration found.');
@@ -65,9 +66,9 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
 
   commands.addCommand(CommandIDs.logout, {
     label: 'Logout',
-    caption: 'Log out of the Hub',
+    caption: 'Shut down this server and log out of the Hub',
     execute: () => {
-      window.location.href = hubHost + URLExt.join(hubPrefix, 'logout');
+      window.location.href = hubHost + URLExt.join(baseUrl, 'logout');
     }
   });
 
