@@ -1,4 +1,4 @@
-# based on recipe in 
+# based on recipe in
 # https://github.com/jupyterlab/extension-cookiecutter-ts/blob/master/.travis.yml
 language: python
 sudo: false
@@ -32,4 +32,4 @@ script:
 - jupyter labextension install .
 - jupyter lab clean
 - jupyter labextension link .
-- python -m jupyterlab.selenium_check
+- python -m jupyterlab.browser_check
