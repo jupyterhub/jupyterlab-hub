@@ -9,7 +9,7 @@ cache:
     - $HOME/.npm
 install:
 - pip install -U -q pip
-- notebook
+- pip install -q notebook
 - pip install --pre jupyterlab
 script:
 - npm install
