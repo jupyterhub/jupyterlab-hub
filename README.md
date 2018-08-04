@@ -25,7 +25,7 @@ jupyter labextension install @jupyterlab/hub-extension
 ### JupyterHub
 
 For single-user images based off `jupyter/base-notebook`, you may enable Jupyter-Lab with
-[JUPYTER_ENABLE_LAB](https://github.com/jupyter/docker-stacks/tree/master/base-notebook#notebook-options) in `jupyterhub_config.py`:
+[JUPYTER_ENABLE_LAB](http://jupyter-docker-stacks.readthedocs.io/en/latest/using/common.html#notebook-options) in `jupyterhub_config.py`:
 
 ```
 c.Spawner.environment = { 'JUPYTER_ENABLE_LAB': 'yes' }
