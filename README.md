@@ -14,42 +14,29 @@ in a Python package.
 
 ## Installation
 
-### Notebook
+### Setup user environment
 
-To install this extension into JupyterLab, do the following:
+To install the extension, run:
 
 ```bash
 jupyter labextension install @jupyterlab/hub-extension
 ```
 
-### JupyterHub
+Note that if JupyterHub is served under a sub-directory (for instance `/jupyter`), you will need to pass this information to JupyterLab via `page_config.json`. In an Anaconda installation, this file should be created at `/path/to/anaconda/share/jupyter/lab/settings/page_config.json`. 
 
-For single-user images based off `jupyter/base-notebook`, you may enable Jupyter-Lab with
-[JUPYTER_ENABLE_LAB](http://jupyter-docker-stacks.readthedocs.io/en/latest/using/common.html#notebook-options) in `jupyterhub_config.py`:
-
-```
-c.Spawner.environment = { 'JUPYTER_ENABLE_LAB': 'yes' }
-```
-
-For other images, have your single-user servers using the following entry command:
-
-```bash
-jupyter labhub
-```
-
-This can be achieved by the Spawner configuration:
-
-```
-c.Spawner.cmd = ['jupyter-labhub']
-```
-
-Note: Additional information may be found in the [Zero to JupyterHub Guide for Kubernetes](https://zero-to-jupyterhub.readthedocs.io/en/latest/user-environment.html#use-jupyterlab-by-default)
-
-If Jupyterhub is served under a subdirectory (for instance `/jupyter`), you will need to pass this information to JupyterLab via `page_config.json`. In an Anaconda installation, this file should be created at `/path/to/anaconda/share/jupyter/lab/settings/page_config.json`. Example contents:
-```
+Example contents of `page_config.json`:
+```json
 {
     "hub_prefix": "/jupyter"
 }
+```
+
+### Configure JupyterHub's Spawner to start JupyterLab
+
+Configure JupyterHub's Spawner to start with a JupyterLab that is aware of the JupyterHub by using a `jupyterhub_config.py` with the following entry:
+
+```
+c.Spawner.cmd = ['jupyter-labhub']
 ```
 
 ## Development
@@ -67,5 +54,3 @@ To rebuild the package and the JupyterLab app after making changes:
 npm run build
 jupyter lab build
 ```
-
-
