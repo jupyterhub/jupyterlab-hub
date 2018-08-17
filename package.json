@@ -28,10 +28,10 @@
     "extension": true
   },
   "dependencies": {
-    "@jupyterlab/application": "^0.17.0",
-    "@jupyterlab/apputils": "^0.17.0",
+    "@jupyterlab/application": "^0.18.0",
+    "@jupyterlab/apputils": "^0.18.0",
     "@jupyterlab/coreutils": "^2.0.0",
-    "@jupyterlab/mainmenu": "^0.6.0",
+    "@jupyterlab/mainmenu": "^0.7.0",
     "@phosphor/widgets": "^1.5.0"
   },
   "devDependencies": {
