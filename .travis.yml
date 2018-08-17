@@ -1,6 +1,8 @@
 # based on recipe in
 # https://github.com/jupyterlab/extension-cookiecutter-ts/blob/master/.travis.yml
 language: python
+python:
+  - "3.6"
 sudo: false
 dist: trusty
 cache:
@@ -8,7 +10,7 @@ cache:
   directories:
     - $HOME/.npm
 install:
-- pip install -U -q pip
+- python -m pip install -q -U pip
 - pip install -q -U notebook
 - pip install --pre -U jupyterlab
 script:
