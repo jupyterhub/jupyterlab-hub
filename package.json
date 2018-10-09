@@ -1,6 +1,6 @@
 {
   "name": "@jupyterlab/hub-extension",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "JupyterLab integration for JupyterHub.",
   "author": "Project Jupyter",
   "main": "lib/index.js",
@@ -28,14 +28,14 @@
     "extension": true
   },
   "dependencies": {
-    "@jupyterlab/application": "^0.18.0",
-    "@jupyterlab/apputils": "^0.18.0",
-    "@jupyterlab/coreutils": "^2.0.0",
-    "@jupyterlab/mainmenu": "^0.7.0",
-    "@phosphor/widgets": "^1.5.0"
+    "@jupyterlab/application": "^0.19.1",
+    "@jupyterlab/apputils": "^0.19.1",
+    "@jupyterlab/coreutils": "^2.2.1",
+    "@jupyterlab/mainmenu": "^0.8.1",
+    "@phosphor/widgets": "^1.6.0"
   },
   "devDependencies": {
     "rimraf": "^2.6.1",
-    "typescript": "~2.6.0"
+    "typescript": "~2.8.0"
   }
 }
