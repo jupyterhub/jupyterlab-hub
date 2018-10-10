@@ -1,6 +1,6 @@
 {
   "name": "@jupyterlab/hub-extension",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "JupyterLab integration for JupyterHub.",
   "keywords": [
     "jupyter",
@@ -29,7 +29,7 @@
     "@jupyterlab/apputils": "^0.19.1",
     "@jupyterlab/coreutils": "^2.2.1",
     "@jupyterlab/mainmenu": "^0.8.1",
-    "@phosphor/widgets": "^1.5.0"
+    "@phosphor/widgets": "^1.6.0"
   },
   "devDependencies": {
     "rimraf": "^2.6.1",
