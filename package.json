@@ -2,30 +2,27 @@
   "name": "@jupyterlab/hub-extension",
   "version": "0.11.0",
   "description": "JupyterLab integration for JupyterHub.",
-  "author": "Project Jupyter",
-  "main": "lib/index.js",
-  "license": "BSD-3-Clause",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jupyterhub/jupyterlab-hub.git"
-  },
   "keywords": [
     "jupyter",
     "jupyterlab",
     "jupyterlab-extension"
   ],
+  "license": "BSD-3-Clause",
+  "author": "Project Jupyter",
+  "files": [
+    "lib/*.d.ts",
+    "lib/*.js"
+  ],
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jupyterhub/jupyterlab-hub.git"
+  },
   "scripts": {
     "build": "tsc",
     "clean": "rimraf lib",
     "prepare": "npm run build",
     "watch": "tsc -w"
-  },
-  "files": [
-    "lib/*.d.ts",
-    "lib/*.js"
-  ],
-  "jupyterlab": {
-    "extension": true
   },
   "dependencies": {
     "@jupyterlab/application": "^0.19.1",
@@ -36,6 +33,9 @@
   },
   "devDependencies": {
     "rimraf": "^2.6.1",
-    "typescript": "~2.8.0"
+    "typescript": "~3.1.1"
+  },
+  "jupyterlab": {
+    "extension": true
   }
 }
