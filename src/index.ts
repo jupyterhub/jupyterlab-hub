@@ -10,7 +10,7 @@ import {
 } from '@jupyterlab/apputils';
 
 import {
-  JupyterLab, JupyterLabPlugin
+  JupyterLab, JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
 import {
@@ -196,7 +196,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
 /**
  * Initialization data for the jupyterlab_hub extension.
  */
-const hubExtension: JupyterLabPlugin<void> = {
+const hubExtension: JupyterFrontEndPlugin<void> = {
   activate: activateHubExtension,
   id: 'jupyter.extensions.jupyterlab-hub',
   requires: [
