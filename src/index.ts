@@ -10,7 +10,7 @@ import {
 } from '@jupyterlab/apputils';
 
 import {
-  JupyterLab, JupyterFrontEndPlugin
+  JupyterFrontEnd, JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
 import {
@@ -37,7 +37,7 @@ namespace CommandIDs {
 /**
  * Activate the jupyterhub extension.
  */
-function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMenu: IMainMenu): void {
+function activateHubExtension(app: JupyterFrontEnd, palette: ICommandPalette, mainMenu: IMainMenu): void {
 
   // This config is provided by JupyterHub to the single-user server app
   // in a dictionary: app.web_app.settings['page_config_data'].
