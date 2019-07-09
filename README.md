@@ -2,6 +2,7 @@
 
 ** This repo has been deprecated.  The equivalent functionality is now
 available in JupyterLab itself.
+Any functionality that might have been added here should go in https://github.com/jupyterlab/jupyterlab/tree/master/packages/hub-extension
 **
 
 [JupyterLab](https://github.com/jupyterlab/jupyterlab) integration for
