@@ -1,5 +1,10 @@
 # jupyterlab-hub
 
+** This repo has been deprecated.  The equivalent functionality is now
+available in JupyterLab itself.
+Any functionality that might have been added here should go in https://github.com/jupyterlab/jupyterlab/tree/master/packages/hub-extension
+**
+
 [JupyterLab](https://github.com/jupyterlab/jupyterlab) integration for
 [JupyterHub](https://github.com/jupyterhub/jupyterhub).
 
@@ -22,7 +27,7 @@ To install the extension, run:
 jupyter labextension install @jupyterlab/hub-extension
 ```
 
-Note that if JupyterHub is served under a sub-directory (for instance `/jupyter`), you will need to pass this information to JupyterLab via `page_config.json`. In an Anaconda installation, this file should be created at `/path/to/anaconda/share/jupyter/lab/settings/page_config.json`. 
+Note that if JupyterHub is served under a sub-directory (for instance `/jupyter`), you will need to pass this information to JupyterLab via `page_config.json`. In an Anaconda installation, this file should be created at `/path/to/anaconda/share/jupyter/lab/settings/page_config.json`.
 
 Example contents of `page_config.json`:
 ```json
